@@ -1,0 +1,62 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/styles.css'%}">
+<div class="cent_block">
+    <form onsubmit="handleSubmit(this)" enctype="multipart/form-data" method="post" action="/api_save_photo_profile" class="photo_form">
+        {% csrf_token %}
+        <div class="centers">
+
+            <img id="change_photo" crossorigin="Anonymous" src="{% static 'space.jpg' %}" width="500" height="281" class="crop-image">
+
+        </div>
+        <br>
+        <div class="func_save">
+            <input type="file" id="uploadImage" name="termek_file" accept="image/*,image/jpeg">
+            <input class="btn_save_main_img"  type="submit" value="Отправить">
+        </div>
+        <div class="block_for_div">
+            <input name="top" value="190"></input>
+            <input name="left" value="255"></input>
+            <input name="width" value="200"></input>
+            <input name="height" value="200"></input>
+        </div>
+    </form>
+</div>
+
+
+<script src="{% static 'js/top_up_popup_script.js' %}"></script>
+<script>
+    var n = 0
+
+    var loadImg = function(input) {
+      if (input.files && input.files[0]) {
+        var imgPreview = document.querySelector('#change_photo');
+        var lol = document.querySelector('#lol');
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          imgPreview.src = e.target.result;
+          lol.src = e.target.result;
+
+        }
+        n = 1
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+    document.querySelector('#uploadImage').onchange = function() {
+      loadImg(this);
+    }
+
+    function handleSubmit(e){
+        console.log(e)
+        const top = e['top']
+        const left = e['left']
+        const width = e['width']
+        const height = e['height']
+        const img = document.querySelector('.overlay')
+        top.value = img.style.top || '195'
+        left.value = img.style.left || '200'
+        width.value = img.offsetWidth
+        height.value = img.offsetHeight
+    }
+
+
+</script>

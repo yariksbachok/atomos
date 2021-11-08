@@ -1,0 +1,51 @@
+{% load static %}
+{% if to_user %}
+<div class="header_user_message">
+  <div class="img_header_user_message">
+    <a href="/profile/{{to_user.username}}">
+    <img src="/{{to_user.profile.get.avatar }}">
+      </a>
+  </div><a href="/profile/{{to_user.username}}">
+  <h1>{{to_user.first_name}} {{to_user.last_name}} {% if to_user.profile.get.online %}
+            <svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="3" cy="3" r="3" fill="#2578FF"/>
+          </svg>
+            {%endif%}</h1></a>
+
+  <div class="more_horizontal">
+    <button>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M5 13C5.55228 13 6 12.5523 6 12C6 11.4477 5.55228 11 5 11C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13ZM5 15C6.65685 15 8 13.6569 8 12C8 10.3431 6.65685 9 5 9C3.34315 9 2 10.3431 2 12C2 13.6569 3.34315 15 5 15Z" fill="#A3ACBA"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13ZM12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" fill="#A3ACBA"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M19 13C19.5523 13 20 12.5523 20 12C20 11.4477 19.5523 11 19 11C18.4477 11 18 11.4477 18 12C18 12.5523 18.4477 13 19 13ZM19 15C20.6569 15 22 13.6569 22 12C22 10.3431 20.6569 9 19 9C17.3431 9 16 10.3431 16 12C16 13.6569 17.3431 15 19 15Z" fill="#A3ACBA"/>
+      </svg>
+    </button>
+  </div>
+</div>
+<div class="message_between_users">
+  <div class="all_message_user">
+    {% for message in messages %}
+       {% include 'patterns/message.html' %}
+    {% endfor%}
+  </div>
+</div>
+
+<div class="input_message">
+      <input type="input" placeholder="Выберите сообщение, чтобы ответить" name="in" required >
+      <button onclick="create_message({{to_user.id}})">Ответить</button>
+</div>
+
+<script src="{% static 'js/chat_script.js' %}" ></script>
+{%else%}
+        <div class="message_between_users">
+          <div class="select_a_dialog">
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="#2578FF" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M31.9999 53.334C43.782 53.334 53.3333 43.7827 53.3333 32.0007C53.3333 20.2186 43.782 10.6673 31.9999 10.6673C20.2178 10.6673 10.6666 20.2186 10.6666 32.0007C10.6666 43.7827 20.2178 53.334 31.9999 53.334ZM31.9999 58.6673C46.7275 58.6673 58.6666 46.7282 58.6666 32.0007C58.6666 17.2731 46.7275 5.33398 31.9999 5.33398C17.2723 5.33398 5.33325 17.2731 5.33325 32.0007C5.33325 46.7282 17.2723 58.6673 31.9999 58.6673Z" fill="#2578FF"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M18.7083 34.8897C20.0579 34.3001 21.6299 34.9161 22.2196 36.2657C23.868 40.0385 27.63 42.6667 31.9999 42.6667C36.3697 42.6667 40.1317 40.0385 41.7801 36.2657C42.3698 34.9161 43.9418 34.3001 45.2914 34.8897C46.641 35.4794 47.257 37.0514 46.6674 38.401C44.2008 44.0463 38.565 48 31.9999 48C25.4347 48 19.7989 44.0463 17.3324 38.401C16.7427 37.0514 17.3588 35.4794 18.7083 34.8897Z" fill="#2578FF"/>
+            <path d="M24.0001 24.0007C24.0001 25.4734 22.8062 26.6673 21.3334 26.6673C19.8607 26.6673 18.6667 25.4734 18.6667 24.0007C18.6667 22.5279 19.8607 21.334 21.3334 21.334C22.8062 21.334 24.0001 22.5279 24.0001 24.0007Z" fill="#2578FF"/>
+            <path d="M45.3333 24.0007C45.3333 25.4734 44.1394 26.6673 42.6667 26.6673C41.1939 26.6673 40 25.4734 40 24.0007C40 22.5279 41.1939 21.334 42.6667 21.334C44.1394 21.334 45.3333 22.5279 45.3333 24.0007Z" fill="#2578FF"/>
+          </svg>
+            <h1>Пожалуйста, выберите диалог из правого списка.</h1>
+            </div>
+        </div>
+{%endif%}

@@ -1,0 +1,58 @@
+
+{% extends 'patterns/sidebar.html' %}
+
+{%block title %}sadasdasdsda{% endblock%}
+
+{% load static%}
+
+{% block main_content %}
+<div>
+    <div class="inputs_of_notifical mb_search">
+        <a class="active" href="/search">Люди</a>
+        <a class="" href="/publications">Публикации</a>
+    </div>
+    <div class="manag_content">
+
+    <div class="find_container">
+        <img src="{% static '/img/svg/zoom_out.svg'%}" class="lupa">
+        <input class="find " type="text" placeholder=" Поиск..." onkeyup="show_found(this)">
+    </div>
+    <div class="mng_list_container">
+        <ul class="mng_list" id="exchange_list">
+            {% for i in all_people%}
+            <li class="mng_list_elem">
+                <span class="mng_user">
+                    <img src="/{{i.user.profile.get.avatar}}" class="mng_user_logo" >
+                    <div class="ib">
+                        <div class="search_user">
+                            <a href="/profile/{{i.user.username}}">
+                                <span class="mng_name">{{ i.user.first_name }} {{ i.user.last_name }}</span>
+                            </a>
+                            <div class="price_mobile">
+                                <span class="mng_cost_mobile">{{i.token_cost}} $</span>
+                            </div>
+                        </div>
+                    </div>
+                </span>
+                <span class="basket_mobile"><img src="{% static 'img/svg/basket_mob.svg' %}"></span>
+                <span class="mng_btn_container">
+                    <span class="mng_cost">{{i.token_cost}} $</span>
+                    <button class="registerbtn mng_btn hover_blue" id="mng_btn" onClick="show();fill_popup_buy(this,`{{ i.user.id }}`)">
+                        Купить</button>
+                </span>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="show_more_btn_container">
+        <button class="show_more_btn registerbtn" id="search_show_more">Показать больше</button>
+    </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block right_sidebar %}
+       {% include 'patterns/block_best_authors.html' %}
+{% endblock %}

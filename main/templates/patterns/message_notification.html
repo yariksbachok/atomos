@@ -1,0 +1,12 @@
+{% load static %}
+
+<div class="message_notification_item">
+    <a href="/messages/{{from_user.id}}"><img src="/{{from_user.profile.get.avatar}}" class="notif_user_avatar"></a>
+    <div class="message_notif_content">
+        <div class="msg_notif_fio"><a href="/messages/{{from_user.id}}"> {{from_user.first_name}} {{from_user.last_name}}</a></div>
+        <p class="msg_notif_text"> {{message}}</p>
+        <img src="{% static 'img/svg/red_chrest.svg'%}" class="msg_notif_close" onclick="close_msg_notif(this)">
+    </div>
+</div>
+
+<!--//href="/messages/{{ user.id}}"-->

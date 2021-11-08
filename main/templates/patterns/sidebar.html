@@ -1,0 +1,204 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>{% block title %}title{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/reset.css'%}">
+    <link rel="stylesheet" href="{% static 'css/styles.css'%}">
+    <script src="{% static 'js/burger.js' %}"></script>
+</head>
+<body>
+<header class="main_header">
+    <div class="wrapper">
+        <div class="burger_header">
+            <div class="header_mob">
+                <a href="/"><img src="{% static 'img/svg/logo_main_page.svg'%}" class="main_logo"></a>
+                <a onclick="activete_burger()"><img src="{% static 'img/svg/sort.svg'%}" class="main_bur"></a>
+                <a onclick="activete_burger()" class="main_bur_none"><img src="{% static 'img/svg/Frame 16.svg'%}"></a>
+            </div>
+            <nav class="main_burger">
+                        <ul class="widget_list">
+                <li class="for_list">
+                    <a tabindex="0" href="/main">
+                        <svg class="sidebar_svg" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M3 20C1.34315 20 0 18.6569 0 17V9.33613C0 8.48567 0.360964 7.67518 0.993106 7.10625L7.9931 0.806251C9.13402 -0.220572 10.866 -0.220574 12.0069 0.80625L19.0069 7.10625C19.639 7.67518 20 8.48567 20 9.33613V17C20 18.6569 18.6569 20 17 20H3ZM18 9.33613V17C18 17.5523 17.5523 18 17 18H14V13C14 11.3432 12.6569 10 11 10H9C7.34315 10 6 11.3432 6 13V18H3C2.44772 18 2 17.5523 2 17V9.33613C2 9.05265 2.12032 8.78248 2.33104 8.59284L9.33103 2.29284C9.71134 1.95056 10.2887 1.95056 10.669 2.29284L17.669 8.59284C17.8797 8.78248 18 9.05265 18 9.33613ZM8 18V13C8 12.4478 8.44772 12 9 12H11C11.5523 12 12 12.4478 12 13V18H8Z" fill="black"/>
+                        </svg>
+                        Главная
+                    </a>
+                </li>
+                <li class="for_list">
+                    <a tabindex="0" href="/exchange">
+                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12.8652 4.52471C12.3181 4.26211 11.6814 4.26211 11.1343 4.52471L3.894 8.00006L3.02853 6.19701L10.2688 2.72167C11.363 2.19646 12.6365 2.19646 13.7307 2.72167L20.971 6.19701C22.8894 7.11786 22.2335 10.0001 20.1055 10.0001H3.89399C1.766 10.0001 1.11011 7.11785 3.02853 6.19701L3.894 8.00006L20.1055 8.00006L12.8652 4.52471Z" fill="black"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 11C12.5523 11 13 11.4477 13 12V18C13 18.5523 12.5523 19 12 19C11.4477 19 11 18.5523 11 18V12C11 11.4477 11.4477 11 12 11Z" fill="black"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M5 11C5.55228 11 6 11.4477 6 12V18C6 18.5523 5.55228 19 5 19C4.44772 19 4 18.5523 4 18V12C4 11.4477 4.44772 11 5 11Z" fill="black"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M19 11C19.5523 11 20 11.4477 20 12V18C20 18.5523 19.5523 19 19 19C18.4477 19 18 18.5523 18 18V12C18 11.4477 18.4477 11 19 11Z" fill="black"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2 21C2 20.4477 2.44772 20 3 20H21C21.5523 20 22 20.4477 22 21C22 21.5523 21.5523 22 21 22H3C2.44772 22 2 21.5523 2 21Z" fill="black"/>
+                        </svg>
+                        Биржа
+                    </a>
+                </li>
+                <li class="for_list">
+                    <a tabindex="0" href="/wallet">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M20 6.17071V5C20 3.34315 18.6569 2 17 2H5C3.34315 2 2 3.34315 2 5V19C2 20.6569 3.34315 22 5 22H19C20.6569 22 22 20.6569 22 19V9C22 7.69378 21.1652 6.58254 20 6.17071ZM4 5C4 4.44772 4.44772 4 5 4H17C17.5523 4 18 4.44772 18 5V6H5C4.44772 6 4 5.55228 4 5ZM4 7.82929C4.31278 7.93985 4.64936 8 5 8H19C19.5523 8 20 8.44771 20 9V11H17C15.3431 11 14 12.3431 14 14C14 15.6569 15.3431 17 17 17H20V19C20 19.5523 19.5523 20 19 20H5C4.44772 20 4 19.5523 4 19V7.82929ZM17 13H20V15H17C16.4477 15 16 14.5523 16 14C16 13.4477 16.4477 13 17 13Z" fill="black"/>
+                        </svg>
+                        Кошелёк
+                    </a>
+                </li>
+                <li class="for_list">
+                    <a tabindex="0" href="/search">
+                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M18.0319 16.6177C19.2635 15.078 20 13.125 20 11C20 6.02944 15.9706 2 11 2C6.02944 2 2 6.02944 2 11C2 15.9706 6.02944 20 11 20C13.125 20 15.078 19.2635 16.6177 18.0319L19.2929 20.7071C19.6834 21.0976 20.3166 21.0976 20.7071 20.7071C21.0976 20.3166 21.0976 19.6834 20.7071 19.2929L18.0319 16.6177ZM18 11C18 14.866 14.866 18 11 18C7.13401 18 4 14.866 4 11C4 7.13401 7.13401 4 11 4C14.866 4 18 7.13401 18 11Z" fill="black"/>
+                        </svg>
+                        Поиск
+                    </a>
+                </li>
+                <li class="for_list">
+                    <a tabindex="0" href="/notification">
+                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2 16.5959C2 16.2151 2.15471 15.8506 2.42864 15.586L3.45759 14.5922C3.84928 14.2139 4.06977 13.6922 4.06814 13.1476L4.05867 9.9946C4.04543 5.58319 7.61789 2 12.0293 2C16.4314 2 20 5.56859 20 9.97067L20 13.1716C20 13.702 20.2107 14.2107 20.5858 14.5858L21.5858 15.5858C21.851 15.851 22 16.2107 22 16.5858C22 17.3668 21.3668 18 20.5858 18H16C16 20.2091 14.2091 22 12 22C9.79086 22 8 20.2091 8 18H3.40408C2.62863 18 2 17.3714 2 16.5959ZM10 18C10 19.1046 10.8954 20 12 20C13.1046 20 14 19.1046 14 18H10ZM18 13.1716C18 14.2324 18.4214 15.2499 19.1716 16L4.87851 16C5.64222 15.246 6.07136 14.2161 6.06813 13.1416L6.05867 9.9886C6.04875 6.6841 8.7248 4 12.0293 4C15.3268 4 18 6.67316 18 9.97067L18 13.1716Z" fill="black"/>
+                        </svg>
+                        Уведомления
+                    </a>
+                </li>
+                <li class="for_list">
+                    <a tabindex="0" href="/messages/0">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2.19279 6.57847C1.36183 4.08555 3.91012 1.80472 6.29602 2.90591L20.0983 9.27619C22.422 10.3487 22.422 13.6514 20.0983 14.7239L6.29603 21.0942C3.91012 22.1954 1.36183 19.9145 2.19281 17.4216L3.68376 12.9488C3.88903 12.333 3.88903 11.6672 3.68377 11.0514L2.19279 6.57847ZM5.4579 4.72182L19.2601 11.0921C20.0347 11.4496 20.0347 12.5505 19.2601 12.908L5.45791 19.2783C4.66261 19.6453 3.81318 18.885 4.09017 18.0541L5.58113 13.5812C5.64486 13.39 5.69672 13.1959 5.73671 13H14C14.5523 13 15 12.5523 15 12C15 11.4478 14.5523 11 14 11H5.73669C5.69671 10.8042 5.64486 10.6101 5.58113 10.4189L4.09016 5.94601C3.81317 5.11504 4.66261 4.35476 5.4579 4.72182Z" fill="black"/>
+                        </svg>
+                         Сообщения
+                    </a>
+                </li>
+            </ul>
+            </nav>
+        </div>
+        <div class="header_wrapper">
+            <div class="logo">
+                <a href="/"><img src="{% static 'img/svg/logo_main_page.svg'%}" alt="Главная страница  ATOMOS" class="main_logo"></a>
+            </div>
+            <div class="drop_menu">
+                <div class="user_name">
+                    <p>{{user.first_name}} {{user.last_name}}</p>
+                </div>
+                <div class="avatar">
+                    <img src="/{{user.profile.get.avatar}}" alt="">
+                </div>
+                <div class="chevron">
+                    <img src="{% static 'img/svg/chevron_down.svg'%}" alt="" class="drop_down">
+                </div>
+                <div class="padding_menu_profile">
+                    <div class="menu_profile">
+                        <a class="profile_in_menu" href="/profile/{{user.username}}">
+                            <img src="/{{user.profile.get.avatar}}" alt="">
+                            <h1>{{user.first_name}} {{user.last_name}}</h1>
+                            <p>Перейти в профиль</p>
+                        </a>
+                        <a href="/settings">Настройки</a>
+                        <a href="">Открыть чат</a>
+                        <a href="/logout">Выход</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="wrapper">
+    <div class="chek">
+        <div class="vertical-menu">
+            <ul class="widget_list">
+                <li class="for_list">
+                    <a tabindex="0" href="/main">
+                        <svg class="sidebar_svg" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M3 20C1.34315 20 0 18.6569 0 17V9.33613C0 8.48567 0.360964 7.67518 0.993106 7.10625L7.9931 0.806251C9.13402 -0.220572 10.866 -0.220574 12.0069 0.80625L19.0069 7.10625C19.639 7.67518 20 8.48567 20 9.33613V17C20 18.6569 18.6569 20 17 20H3ZM18 9.33613V17C18 17.5523 17.5523 18 17 18H14V13C14 11.3432 12.6569 10 11 10H9C7.34315 10 6 11.3432 6 13V18H3C2.44772 18 2 17.5523 2 17V9.33613C2 9.05265 2.12032 8.78248 2.33104 8.59284L9.33103 2.29284C9.71134 1.95056 10.2887 1.95056 10.669 2.29284L17.669 8.59284C17.8797 8.78248 18 9.05265 18 9.33613ZM8 18V13C8 12.4478 8.44772 12 9 12H11C11.5523 12 12 12.4478 12 13V18H8Z" fill="black"/>
+                        </svg>
+                        Главная
+                    </a>
+                </li>
+                <li class="for_list">
+                    <a tabindex="0" href="/exchange">
+                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12.8652 4.52471C12.3181 4.26211 11.6814 4.26211 11.1343 4.52471L3.894 8.00006L3.02853 6.19701L10.2688 2.72167C11.363 2.19646 12.6365 2.19646 13.7307 2.72167L20.971 6.19701C22.8894 7.11786 22.2335 10.0001 20.1055 10.0001H3.89399C1.766 10.0001 1.11011 7.11785 3.02853 6.19701L3.894 8.00006L20.1055 8.00006L12.8652 4.52471Z" fill="black"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 11C12.5523 11 13 11.4477 13 12V18C13 18.5523 12.5523 19 12 19C11.4477 19 11 18.5523 11 18V12C11 11.4477 11.4477 11 12 11Z" fill="black"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M5 11C5.55228 11 6 11.4477 6 12V18C6 18.5523 5.55228 19 5 19C4.44772 19 4 18.5523 4 18V12C4 11.4477 4.44772 11 5 11Z" fill="black"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M19 11C19.5523 11 20 11.4477 20 12V18C20 18.5523 19.5523 19 19 19C18.4477 19 18 18.5523 18 18V12C18 11.4477 18.4477 11 19 11Z" fill="black"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2 21C2 20.4477 2.44772 20 3 20H21C21.5523 20 22 20.4477 22 21C22 21.5523 21.5523 22 21 22H3C2.44772 22 2 21.5523 2 21Z" fill="black"/>
+                        </svg>
+                        Биржа
+                    </a>
+                </li>
+                <li class="for_list">
+                    <a tabindex="0" href="/wallet">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M20 6.17071V5C20 3.34315 18.6569 2 17 2H5C3.34315 2 2 3.34315 2 5V19C2 20.6569 3.34315 22 5 22H19C20.6569 22 22 20.6569 22 19V9C22 7.69378 21.1652 6.58254 20 6.17071ZM4 5C4 4.44772 4.44772 4 5 4H17C17.5523 4 18 4.44772 18 5V6H5C4.44772 6 4 5.55228 4 5ZM4 7.82929C4.31278 7.93985 4.64936 8 5 8H19C19.5523 8 20 8.44771 20 9V11H17C15.3431 11 14 12.3431 14 14C14 15.6569 15.3431 17 17 17H20V19C20 19.5523 19.5523 20 19 20H5C4.44772 20 4 19.5523 4 19V7.82929ZM17 13H20V15H17C16.4477 15 16 14.5523 16 14C16 13.4477 16.4477 13 17 13Z" fill="black"/>
+                        </svg>
+                        Кошелёк
+                    </a>
+                </li>
+                <li class="for_list">
+                    <a tabindex="0" href="/search">
+                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M18.0319 16.6177C19.2635 15.078 20 13.125 20 11C20 6.02944 15.9706 2 11 2C6.02944 2 2 6.02944 2 11C2 15.9706 6.02944 20 11 20C13.125 20 15.078 19.2635 16.6177 18.0319L19.2929 20.7071C19.6834 21.0976 20.3166 21.0976 20.7071 20.7071C21.0976 20.3166 21.0976 19.6834 20.7071 19.2929L18.0319 16.6177ZM18 11C18 14.866 14.866 18 11 18C7.13401 18 4 14.866 4 11C4 7.13401 7.13401 4 11 4C14.866 4 18 7.13401 18 11Z" fill="black"/>
+                        </svg>
+                        Поиск
+                    </a>
+                </li>
+                <li class="for_list">
+                    <a tabindex="0" href="/notification">
+                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2 16.5959C2 16.2151 2.15471 15.8506 2.42864 15.586L3.45759 14.5922C3.84928 14.2139 4.06977 13.6922 4.06814 13.1476L4.05867 9.9946C4.04543 5.58319 7.61789 2 12.0293 2C16.4314 2 20 5.56859 20 9.97067L20 13.1716C20 13.702 20.2107 14.2107 20.5858 14.5858L21.5858 15.5858C21.851 15.851 22 16.2107 22 16.5858C22 17.3668 21.3668 18 20.5858 18H16C16 20.2091 14.2091 22 12 22C9.79086 22 8 20.2091 8 18H3.40408C2.62863 18 2 17.3714 2 16.5959ZM10 18C10 19.1046 10.8954 20 12 20C13.1046 20 14 19.1046 14 18H10ZM18 13.1716C18 14.2324 18.4214 15.2499 19.1716 16L4.87851 16C5.64222 15.246 6.07136 14.2161 6.06813 13.1416L6.05867 9.9886C6.04875 6.6841 8.7248 4 12.0293 4C15.3268 4 18 6.67316 18 9.97067L18 13.1716Z" fill="black"/>
+                        </svg>
+                        Уведомления
+                    </a>
+                </li>
+                <li class="for_list">
+                    <a tabindex="0" href="/messages/0">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2.19279 6.57847C1.36183 4.08555 3.91012 1.80472 6.29602 2.90591L20.0983 9.27619C22.422 10.3487 22.422 13.6514 20.0983 14.7239L6.29603 21.0942C3.91012 22.1954 1.36183 19.9145 2.19281 17.4216L3.68376 12.9488C3.88903 12.333 3.88903 11.6672 3.68377 11.0514L2.19279 6.57847ZM5.4579 4.72182L19.2601 11.0921C20.0347 11.4496 20.0347 12.5505 19.2601 12.908L5.45791 19.2783C4.66261 19.6453 3.81318 18.885 4.09017 18.0541L5.58113 13.5812C5.64486 13.39 5.69672 13.1959 5.73671 13H14C14.5523 13 15 12.5523 15 12C15 11.4478 14.5523 11 14 11H5.73669C5.69671 10.8042 5.64486 10.6101 5.58113 10.4189L4.09016 5.94601C3.81317 5.11504 4.66261 4.35476 5.4579 4.72182Z" fill="black"/>
+                        </svg>
+                         Сообщения
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="chek_content">
+            {% block main_content %}{% endblock %}
+        </div>
+
+
+        {% block  right_sidebar%} {%endblock%}
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <div class="wrapper">
+        <div class="footer_wrapper">
+            <div class="pad_footer">
+                <div class="footer_logo">
+                    <a href="/"><img src="{% static 'img/svg/logo_main_page.svg'%}" alt="Главная страница  ATOMOS" class="main_logo"></a>
+                </div>
+                <nav class="footer_menu">
+                    <ul class="footer_position">
+                        <li class="item_footer"><a href="/" class="footer_button">Личный кабинет</a></li>
+                        <li class="item_footer"><a href="reg/index.html" class="footer_button">Регистрация</a></li>
+                        <li  class="item_footer"><a href="/" class="footer_button">Поддержка</a></li>
+                    </ul>
+                </nav>
+                <div class="c_info">
+                    <p class="c_text">© 2021 Atomos. Все права защищены</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<audio src="{% static 'audio/new_message.mp3'%}" id="new_message_sound" style="display: none"></audio>
+</body>
+</html>

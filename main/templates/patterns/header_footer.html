@@ -1,0 +1,74 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>{% block title%}Страница{%endblock%}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/reset.css'%}">
+    <link rel="stylesheet" href="{% static 'css/styles.css'%}">
+    <script src="{% static 'js/burger.js' %}"></script>
+</head>
+<body>
+<header class="main_header">
+    <div class="wrapper">
+        <div class="burger_header">
+            <div class="header_mob">
+                <a href="/"><img src="{% static 'img/svg/logo_main_page.svg'%}" class="main_logo"></a>
+                <a onclick="activete_burger()"><img src="{% static 'img/svg/sort.svg'%}" class="main_bur"></a>
+                <a onclick="activete_burger()" class="main_bur_none"><img src="{% static 'img/svg/Frame 16.svg'%}"></a>
+            </div>
+            <nav class="main_burger">
+                        <ul class="burger_in_nav">
+                            <li class="menu_item"><a href="/auth" class="menu_link">Купить монеты</a></li>
+                            <li class="menu_item"><a href="/auth" class="menu_link">Документация</a></li>
+                            <li class="menu_item"><a href="/login" class="menu_link">Войти</a></li>
+                            <li class="menu_item"><a href="/auth" class="menu_link">Регистрация</a></li>
+                        </ul>
+            </nav>
+        </div>
+        <div class="header_wrapper">
+            <div class="logo">
+                <a href="/"><img src="{% static 'img/svg/logo_main_page.svg'%}" alt="Главная страница  ATOMOS" class="main_logo"></a>
+            </div>
+            <nav class="main_menu">
+                <ul class="menu_in_nav">
+                    <li class="menu_item"><a href="/auth" class="menu_link">Купить монеты</a></li>
+                    <li class="menu_item"><a href="/auth" class="menu_link">Документация</a></li>
+                    <li class="menu_item"><a href="/login" class="menu_link">Войти</a></li>
+                    <li class="menu_item"><a href="/auth" class="menu_link">Регистрация</a></li>
+                </ul>
+
+            </nav>
+        </div>
+    </div>
+</header>
+
+{% block content %}
+{%endblock%}
+
+<footer class="footer">
+    <div class="wrapper">
+        <div class="footer_wrapper">
+            <div class="pad_footer">
+                <div class="footer_logo">
+                    <a href="/"><img src="{% static 'img/svg/logo_main_page.svg'%}" alt="Главная страница  ATOMOS" class="main_logo"></a>
+                </div>
+                <nav class="footer_menu">
+                    <ul class="footer_position">
+                        <li class="item_footer"><a href="/auth" class="footer_button">Личный кабинет</a></li>
+                        <li class="item_footer"><a href="/auth" class="footer_button">Регистрация</a></li>
+                        <li  class="item_footer"><a href="/login" class="footer_button">Поддержка</a></li>
+                    </ul>
+                </nav>
+                <div class="c_info">
+                    <p class="c_text">© 2021 Atomos. Все права защищены</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

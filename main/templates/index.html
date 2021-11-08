@@ -1,0 +1,116 @@
+{% extends 'patterns/header_footer.html' %}
+
+{%block title %}ATOMOS{% endblock%}
+{% load static%}
+{% block content%}
+<div class="wrapper wrapper_main_content">
+        <div class="text_content">
+            <h1>Социальная криптосеть</h1>
+            <p style="margin: 0">Atomos — это децентрализованная платформа для инвесторов, желающих приумножить баланс, и авторов, стремящихся завоевать популярность, благодаря чему их собственные токены возрастут в цене...</p>
+        </div>
+        <div class="welcome_photo">
+                <a href="/"><img src="{% static 'img/svg/welcome_photo.svg'%}" alt="Главная страница  ATOMOS" class="main_logo"></a>
+        </div>
+    </div>
+    <div class="main_container" >
+        <div class="wrapper">
+            <div class="photo_token">
+                <img src="{% static 'img/svg/example.svg'%}" alt="">
+            </div>
+            <div class="text_container">
+                <h1>Каждый имеет свой собственный токен</h1>
+                <p>У каждого пользователя есть собственный токен, который Вы можете купить или продать. Цена
+ растёт или уменьшается по мере продаваемости.</p>
+                <a href="">Зарегистрироваться</a>
+            </div>
+        </div>
+    </div>
+    <div class="detalisate">
+        <div class="wrapper">
+                <div class="detaile_text">
+                        <h1>Децентрализованный, как биткойн</h1>
+                        <p>Atomos это не компания. Это своего рода блокчейн-платформа, позволяющая инвесторам вложить деньги в перспективных авторов.
+     Вы можете владеть токенами, купив монеты $ATMS.</p>
+                        <a href="">Авторизироваться</a>
+                </div>
+                <div class="detail_photo">
+                    <img width="550", height="405" src="{% static 'img/svg/detalisate.svg'%}" alt="">
+                </div>
+        </div>
+    </div>
+    <div class="platform">
+        <div class="wrapper">
+            <div class="text_platform">
+                <h1>Платформа, принадлежащая её пользователям</h1>
+                <p>Биткойн децентрализует деньги — Atomos децентрализует общение.</p>
+
+                    <a class="reg_input center hover_blue" href="/auth">Зарегистрироваться</a><br>
+                    <a class="center aut_input" href="/login">Авторизоваться</a>
+            </div>
+        </div>
+    </div>
+<div class="questions">
+        <div class="wrapper">
+            <div class="ques_content">
+                <h1>Остались вопросы?</h1>
+                <p>Напишите в нашу поддержку, и мы постараемся ответить как можно быстрее.</p>
+                <div class="quest_blocks">
+                    <div class="block__1">
+                        <h1>Департаменты по эл.почте</h1>
+                        <p>Withdrawal Department: <a href="">money@atomos.ru</a></p>
+                        <p>Support Department: <a href="">support@atomos.ru</a></p>
+                        <p class="quest_descriptions">Официальные эл. почты тех. поддержки Atomos</p>
+                    </div>
+                    <div class="block__2">
+                        <h1>Поддержка по Telegram</h1>
+                        <p>Контактный: <a href="">@Atomos_sup</a></p>
+                        <p>Бот: <a href="">@Atomos_bot</a></p>
+                        <p class="quest_descriptions">Официальные аккаунты тех. поддержки Atomos</p>
+                    </div>
+                    <div class="block__3">
+                        <h1>Поддержка по Jabber</h1>
+                        <p>Jabber ID: <a href="">support@atomos.ru</a></p>
+                        <p class="quest_descriptions">Официальный аккаунт тех. поддержки Atomos</p>
+                    </div>
+                    <div class="block__4">
+                        <h1>Поддержка на нашем сайте</h1>
+                        <p><a href="">Обычный чат</a> с оператором</p>
+                        <p><a href="">Быстрый чат</a> с оператором</p>
+                        <p class="quest_descriptions">Официальные чаты тех. поддержки Atomos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="quest_blocks_mobile">
+                            <div class="back_slide" onclick="current_slide(1)">
+                                <img src="{% static 'img/svg/chevron_backward_two.svg'%}">
+                            </div>
+                            <div class="block_mobile__1">
+                                <h1>Департаменты по эл.почте</h1>
+                                <p>Withdrawal Department: <a href="">money@atomos.ru</a></p>
+                                <p>Support Department: <a href="">support@atomos.ru</a></p>
+                                <p class="quest_descriptions">Официальные эл. почты тех. поддержки Atomos</p>
+                            </div>
+                            <div class="block_mobile__2">
+                                <h1>Поддержка по Telegram</h1>
+                                <p>Контактный: <a href="">@Atomos_sup</a></p>
+                                <p>Бот: <a href="">@Atomos_bot</a></p>
+                                <p class="quest_descriptions">Официальные аккаунты тех. поддержки Atomos</p>
+                            </div>
+                            <div class="block_mobile__3">
+                                <h1>Поддержка по Jabber</h1>
+                                <p>Jabber ID: <a href="">support@atomos.ru</a></p>
+                                <p class="quest_descriptions">Официальный аккаунт тех. поддержки Atomos</p>
+                            </div>
+                            <div class="block_mobile__4">
+                                <h1>Поддержка на нашем сайте</h1>
+                                <p><a href="">Обычный чат</a> с оператором</p>
+                                <p><a href="">Быстрый чат</a> с оператором</p>
+                                <p class="quest_descriptions">Официальные чаты тех. поддержки Atomos</p>
+                            </div>
+                            <div class="next_slide" onclick="plus_slide(1)">
+                                <img src="{% static 'img/svg/chevron_backward.svg'%}">
+                            </div>
+                        </div>
+{%endblock%}

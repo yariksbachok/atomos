@@ -1,0 +1,89 @@
+{%load static%}
+<form action="/api_save_photo_profile" method="POST" enctype="multipart/form-data">
+    <div class="user_settings_container">
+        <h1> Настройки</h1>
+        <div class="user_settings_logo_container">
+            <div class="user_settings_logo">
+                <img src="{{ user.profile.get.avatar }}" class="us_logo">
+                <div class="edit_icon_container">
+                    <a href="/change_main_photo"><img src="{% static 'img/svg/pen.svg'%}" class="edit_icon"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     {% csrf_token %}
+    <div class="psw" style="margin-right: 2%">
+        <label  class="label_form" for="username_input"><b>Юзернейм</b></label><br>
+                <div class="pop">
+                    <div class="usrname_reg_conti">
+                        <img src="{% static 'img/svg/dog.svg'%}" class="dog_username_red_reg_conti">
+                        <input class="form_email" type="continue_user"
+                        placeholder="Введите желаемый юзернейм" name="username" id="username_input"
+                        style="width:100%;">
+                    </div>
+                </div>
+    </div>
+    <div class="psw" style="float: right; margin-right: 0px;">
+        <label class="label_form" for="name_input"><b>Имя и фамилия</b></label><br>
+        <div class="pop">
+            <input class="form_email" type="text" placeholder="{{user.first_name}} {{user.last_name}}" name="name" id="name_input">
+        </div>
+
+    </div>
+    <div class="psw w100" style ="margin-top:18px;" >
+        <label class="label_form" for="email_input"><b>Электронная почта</b></label><br>
+        <div class="pop">
+            <input class="form_email" type="text" placeholder="Введите адрес электронной почты" name="email" id="email_input">
+        </div>
+
+    </div>
+    <div class="all_psw_two" style="margin-bottom:32px">
+        <div class="psw" style="margin-right: 2%">
+            <label  class="label_form" for="old_psw_input"><b>Старый пароль</b></label><br>
+                <div class="pop">
+                    <div class="usrname_reg_conti">
+                        <div class="imgbtn">
+                            <a>
+                                <img onClick="eye_toggler_lr(this)" eight="22px" width="22px" src="{% static 'img/svg/show.svg'%}">
+                            </a>
+                        </div>
+                        <input class="form_email" type="password" placeholder="Введите cтарый пароль" name="old_psw" id="old_psw_input">
+                    </div>
+                </div>
+        </div>
+        <div class="psw" style="float: right; margin-right: 0px;">
+            <label class="label_form" for="new_psw_input"><b>Новый пароль</b></label><br>
+            <div class="pop">
+                <div class="usrname_reg_conti">
+                    <div class="imgbtn">
+                        <a type="submit">
+                            <img onClick="eye_toggler_lr(this)" eight="22px" width="22px" src="{% static 'img/svg/show.svg'%}">
+                        </a>
+                    </div>
+                    <input class="form_email" type="password" placeholder="Введите новый пароль для входа" name="new_psw" id="new_psw_input">
+                </div>
+            </div>
+        </div>
+        {% if errors %}
+            {% for error in errors %}
+                <div class="not_email mb-50">
+                    <p>{{error}}</p>
+                </div>
+            {% endfor%}
+        {% endif %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="not_email mb-50 success_msg">
+                    <p>{{message}}</p>
+                </div>
+            {% endfor%}
+        {% endif %}
+    </div>
+
+    <button class="registerbtn us_save_btn hover_blue" type="submit">Сохранить</button>
+    <button class="registerbtn verif">Верификация</button>
+</form>
+
+
+    <script src="{% static 'js/eye_script.js' %}"></script>

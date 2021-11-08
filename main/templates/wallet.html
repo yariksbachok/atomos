@@ -1,0 +1,147 @@
+{% extends 'patterns/sidebar.html' %}
+
+{%block title %}sadasdasdsda{% endblock%}
+
+{% load static%}
+
+{% block main_content %}
+    <div class="balance_conetent">
+            <div class="all_balance_content">
+                <p class="bal">Баланс</p>
+                <h1>${{user.profile.get.balance}}</h1>
+                <div class="img_balance green">
+                    <img src="{% static 'img/svg/arrow_up.svg'%}" alt="">
+                    <p>${{user.profile.get.token_cost}} ({{user.profile.get.procent}}%)</p>
+                </div>
+                <h2>Ваши инвестиции</h2>
+            </div>
+            <div class="withdraw_in_balance">
+                <a href="#">Вывести</a>
+                <a href="#" class="top_up_ballance" onClick="show_top_up();
+                fill_popup_top_up(this, {{ user.id }})">Пополнить</a>
+            </div>
+        </div>
+        <div class="transactions">
+            <div class="tr_block">
+                <div class="tr_image">
+                    <img  src="{% static 'img/svg/user_logo.svg'%}" alt="">
+                </div>
+                <a href=""><h2>Лев Фисун</h2></a>
+                <div class="img_balance green">
+                    <img src="{% static 'img/svg/arrow_up.svg'%}" alt="">
+                    <p>15.6%</p>
+                </div>
+                 <h1>~98,291$</h1>
+            </div>
+        </div>
+    <div class="transactions">
+            <div class="tr_block">
+                <div class="tr_image">
+                    <img  src="{% static 'img/svg/user_logo.svg'%}" alt="">
+                </div>
+                <a href=""><h2>Лев Фисун</h2></a>
+                <div class="img_balance green">
+                    <img src="{% static 'img/svg/arrow_up.svg'%}" alt="">
+                    <p>15.6%</p>
+                </div>
+                 <h1>~98,291$</h1>
+            </div>
+        </div>
+    <div class="transactions">
+            <div class="tr_block">
+                <div class="tr_image">
+                    <img  src="{% static 'img/svg/user_logo.svg'%}" alt="">
+                </div>
+                <a href=""><h2>Лев Фисун</h2></a>
+                <div class="img_balance green">
+                    <img src="{% static 'img/svg/arrow_up.svg'%}" alt="">
+                    <p>15.6%</p>
+                </div>
+                 <h1>~98,291$</h1>
+            </div>
+        </div>
+    <div class="transactions">
+            <div class="tr_block">
+                <div class="tr_image">
+                    <img  src="{% static 'img/svg/user_logo.svg'%}" alt="">
+                </div>
+                <a href=""><h2>Лев Фисун</h2></a>
+                <div class="img_balance green">
+                    <img src="{% static 'img/svg/arrow_up.svg'%}" alt="">
+                    <p>15.6%</p>
+                </div>
+                 <h1>~98,291$</h1>
+            </div>
+        </div>
+        <div class="history_transaction">
+                <h1>Ваши транзакции</h1>
+                <div class="transact">
+                    <div class="mob_trans">
+                        <a>Уcпешно</a>
+                        <p>23 апреля 2021</p>
+                    </div>
+                    <div class="transact_ico">
+                        <img src="{% static 'img/svg/traide_up.svg'%}" alt="">
+                    </div>
+                    <div class="transaction_name">
+                        <p>Вывод средств</p>
+                        <p class="mob_trans_p">23 апреля 2021</p>
+                    </div>
+                    <h3 class="green">+ $2,000.00</h3>
+                    <a class="mob_trans_a">Уcпешно</a>
+                </div>
+                <div class="transact">
+                    <div class="mob_trans">
+                        <a>Уcпешно</a>
+                        <p>23 апреля 2021</p>
+                    </div>
+                    <div class="transact_ico">
+                        <img src="{% static 'img/svg/dollar.svg'%}" alt="">
+                    </div>
+                    <div class="transaction_name">
+                        <p>Вывод средств</p>
+                        <p class="mob_trans_p">23 апреля 2021</p>
+                    </div>
+                    <h3 class="green">+ $3,000.00</h3>
+                    <a class="mob_trans_a">Уcпешно</a>
+                </div>
+                <div class="transact">
+                    <div class="mob_trans">
+                        <a>Уcпешно</a>
+                        <p>23 апреля 2021</p>
+                    </div>
+                    <div class="transact_ico">
+                        <img src="{% static 'img/svg/dollar.svg'%}" alt="">
+                    </div>
+                    <div class="transaction_name">
+                        <p>Вывод средств</p>
+                        <p class="mob_trans_p">23 апреля 2021</p>
+                    </div>
+                    <h3 class="red">- $2,000.00</h3>
+                    <a class="mob_trans_a">Уcпешно</a>
+                </div>
+                <div class="transact">
+                    <div class="mob_trans">
+                        <a>Уcпешно</a>
+                        <p>23 апреля 2021</p>
+                    </div>
+                    <div class="transact_ico">
+                        <img src="{% static 'img/svg/trending_down.svg'%}" alt="">
+                    </div>
+                    <div class="transaction_name">
+                        <p>Вывод средств</p>
+                        <p class="mob_trans_p">23 апреля 2021</p>
+                    </div>
+                    <h3 class="red">- $2,000.00</h3>
+                    <a class="mob_trans_a">Уcпешно</a>
+                </div>
+
+            </div>
+            {% include 'patterns/top_up_popup.html'%}
+            <script src="{% static 'js/top_up_popup_script.js'%}"></script>
+{% endblock %}
+
+
+{% block right_sidebar %}
+       {% include 'patterns/block_best_authors.html' %}
+{% endblock %}

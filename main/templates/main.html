@@ -1,0 +1,46 @@
+{% extends 'patterns/sidebar.html' %}
+
+{%block title %}sadasdasdsda{% endblock%}
+{% load static%}
+{% block main_content %}
+    <form action="/addPost" method="POST" enctype="multipart/form-data">
+        <div class="add_new_comment">
+            <div class="logo_user_in_comment">
+                <img src="{{user.profile.get.avatar}}" alt="">
+            </div>
+
+                {% csrf_token %}
+                <div class="form_for_comment">
+                    <p>
+                        <textarea name="message" contenteditable="true" placeholder="Что у вас нового?"></textarea>
+                        <div id="result" class="uploadPreview"></div>
+                    </p>
+                    <div class="input_in_add">
+                        <input type="submit" class="hover_blue" value="Опубликовать" onClick="create_post(45)">
+                    </div>
+                </div>
+        </div>
+        <div class="add_image">
+            <input type="file" id="uploadImage" name="termek_file" class="file_input" style="display:none;" />
+            <svg width="21" height="21" viewBox="0 0 21 21" fill="none" onClick="addImg(this)" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M14 8.75C14.9665 8.75 15.75 7.9665 15.75 7C15.75 6.0335 14.9665 5.25 14 5.25C13.0335 5.25 12.25 6.0335 12.25 7C12.25 7.9665 13.0335 8.75 14 8.75Z" fill="#909AAB"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M1.75 4.375C1.75 2.92525 2.92525 1.75 4.375 1.75H16.625C18.0747 1.75 19.25 2.92525 19.25 4.375V16.625C19.25 18.0747 18.0747 19.25 16.625 19.25H4.375C2.92525 19.25 1.75 18.0747 1.75 16.625V4.375ZM4.375 3.5H16.625C17.1082 3.5 17.5 3.89175 17.5 4.375V16.625C17.5 16.8244 17.4333 17.0082 17.321 17.1554C17.2942 17.1197 17.2652 17.0847 17.2339 17.0506L9.24792 8.33864C8.17404 7.16714 6.3137 7.21106 5.29631 8.43193L3.5 10.5875V4.375C3.5 3.89175 3.89175 3.5 4.375 3.5ZM3.5 13.3211V16.625C3.5 17.1082 3.89175 17.5 4.375 17.5H15.2718L7.9579 9.52116C7.59994 9.13066 6.97983 9.1453 6.6407 9.55225L3.5 13.3211Z" fill="#909AAB"/>
+            </svg>
+        </div>
+        </form>
+        {%for i in some_list%}
+
+            {% if i.id not in hidden%}
+                {% include 'patterns/block_comments.html' %}
+            {% endif %}
+        {% endfor %}
+
+
+        <script src="{% static 'js/hide_comment_script.js' %}"></script>
+        <script src="{% static 'js/comment.js' %}"></script>
+
+{% endblock %}
+{% block right_sidebar %}
+       {% include 'patterns/block_best_authors.html' %}
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'patterns/header_footer.html' %}
+
+{%block title %}ATOMOS / ВКонтакте{% endblock%}
+{% load static%}
+{% block content%}
+<div class='register wrapper'>
+    <div class="reg_title">
+        <h1>Продолжение регистрации</h1>
+    </div>
+    <div class="continue_registration">
+        <form method="post">
+            {% csrf_token %}
+        <div class="all_psw">
+            <div class="psw" style="margin-right: 2%">
+                <label  class="label_form" for="first_name"><b>Ваше имя</b></label><br>
+                    <div class="pop">
+                        <input class="form_email" type="text" placeholder="Лев" name="first_name" required>
+                    </div>
+            </div>
+            <div class="psw" style="float: right; margin-right: 0px;">
+                <label class="label_form" for="last_name"><b>Ваша фамилия</b></label><br>
+                <div class="pop">
+                    <input class="form_email" type="text" placeholder="Фисун" name="last_name" required>
+                </div>
+            </div>
+            <div class="all_psw_two w100">
+                <div class="psw w100" style="margin-right: 2%">
+                    <label  class="label_form" for="username"><b>Желаемый юзернейм</b></label><br>
+                        <div class="pop w100">
+                            <div class="usrname_reg_conti w100">
+                                <img src="{%static 'img/svg/dog.svg'%}" class="dog_username_red_reg_conti">
+                                <input class="form_email w100" type="continue_user" placeholder="leo" name="username" required>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            </div>
+        <div class="form_submit">
+            <button type="submit" class="registerbtn hover_blue">Завершить регистрацию</button>
+        </div>
+        </form>
+    </div>
+</div>
+{%endblock%}

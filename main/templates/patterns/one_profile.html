@@ -1,0 +1,18 @@
+{% load static%}
+<li class="mng_list_elem">
+    <span class="mng_user">
+        <img src="/{{i.avatar}}" class="mng_user_logo">
+        <div class="ib">
+            <div class="search_user">
+                <a href="/profile/{{i.user.username}}">
+                    <span class="mng_name">{{ i.user.first_name }} {{ i.user.last_name }}</span>
+                </a>
+            </div>
+        </div>
+    </span>
+    <span class="mng_btn_container">
+        <span class="mng_cost">{{i.token_cost}}$</span>
+        <button class="registerbtn mng_btn hover_blue" id="mng_btn"
+                onClick="show();fill_popup_buy(this, {{ i.user.id }})">Купить</button>
+    </span>
+</li>

@@ -1,0 +1,74 @@
+{% extends 'patterns/header_footer.html' %}
+
+{%block title %}ATOMOS / Регистрация{% endblock%}
+{% load static%}
+{% block content%}
+<div class='register wrapper'>
+    <div class="reg_title">
+        <h1>Создайте аккаунт Atomos</h1>
+    </div>
+    <div class="reg_conteiner">
+        <form method="post">
+            {% csrf_token %}
+                <div class="conteiner_email">
+                    <label class="label_form" for="email" style="font-style: bold;"><b>E-mail</b></label>
+                    {% if email %}
+                        <input class="form_email" type="text" placeholder="melnikov@mail.ru" name="email" required value="{{ email }}">
+                    {% else %}
+                        <input class="form_email" type="text" placeholder="melnikov@mail.ru" name="email" required>
+                    {% endif %}
+                </div>
+                <div class="all_psw">
+                    <div class="psw">
+                        <label  class="label_form" for="psw"><b>Пароль</b></label><br>
+                            <div class="pop">
+                                {% if psw %}
+                                     <input class="form_email" type="password" placeholder="GHHa3gYCxvgq8rQdrv2F|" name="psw" required value="{{ psw }}">
+                                {% else %}
+                                    <input class="form_email" type="password" placeholder="GHHa3gYCxvgq8rQdrv2F|" name="psw" required>
+                                {% endif %}
+                                <div class="imgbtn">
+                                    <a>
+                                        <img  onClick="eye_toggler_lr(this)" eight="22px" width="22px" src="{% static 'img/svg/show.svg'%}">
+                                    </a>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="psw">
+                        <label class="label_form" for="psw-repeat"><b>Повторите пароль</b></label><br>
+                        <div class="pop">
+                            {% if pswrepeat %}
+                                 <input class="form_email" type="password" placeholder="Введите новый пароль для входа" name="psw-repeat" required value="{{ pswrepeat }}">
+                            {% else %}
+                                <input class="form_email" type="password" placeholder="Введите новый пароль для входа" name="psw-repeat" required>
+                            {% endif %}
+                            <div class="imgbtn">
+                                <a>
+                                    <img onClick="eye_toggler_lr(this)" eight="22px" width="22px" src="{% static 'img/svg/show.svg'%}">
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                {% if error_message %}
+                    <div class="not_email">
+                        <p>{{ error_message }}</p>
+                    </div>
+                {% endif %}
+                <div class="not_email">
+                    <p>{{ text }}</p>
+                </div>
+                <div class="form_submit">
+                    <button type="submit" class="registerbtn hover_blue">Продолжить регистрацию</button>
+                </div>
+            </form>
+        <div class="i_have">
+            <a href="/login">У меня уже есть аккаунт</a>
+        </div>
+    </div>
+</div>
+<script src="{% static 'js/eye_script.js' %}"></script>
+{%endblock%}
+
+

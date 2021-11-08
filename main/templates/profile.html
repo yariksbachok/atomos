@@ -1,0 +1,60 @@
+{% extends 'patterns/sidebar.html' %}
+
+{%block title %}sadasdasdsda{% endblock%}
+
+{% load static%}
+
+{% block main_content %}
+<div class="profile">
+    <div class="profile_header">
+        <div class="img_bg">
+            <img src="/{{profile.profile.get.background}}" alt="">
+        </div>
+        <div class="avatar_profile">
+            <img src="/{{profile.profile.get.avatar}}" alt="">
+        </div>
+            <a href="/change_background"><div class="edit_bg" >
+
+                <img src="{% static 'img/svg/edit_profile.svg' %}"   alt="">
+            </div></a>
+        </form>
+    </div>
+    <div class="header_inputs">
+        {% if user.id != profile.id %}
+        <a href="/message/{{profile.id}}" class="message_mobile">Купить</a>
+        <a href="#">Продать</a>
+        <a href="#">Купить</a>
+        {% else %}
+        <a href="/settings">Peдактировать</a>
+        {%endif%}
+    </div>
+
+    <div class="status_profile">
+        <div class="name_profile">
+            <h1>{{profile.first_name}} {{profile.last_name}}</h1>
+            <p>@{{profile.username}}</p>
+        </div>
+        <div class="message_mobile_no">
+            <a href="/message/{{profile.id}}">Купить</a>
+        </div>
+        <div class="statistic">
+            <span class="green"><img src="{% static 'img/svg/arrow_up.svg'%}" alt="">{{profile.profile.get.procent}}%</span>
+            <span>${{profile.profile.get.token_cost}}</span>
+        </div>
+    </div>
+    <div class="pinned_post">
+        {% for i in pinned %}
+            {% include 'patterns/block_comments.html'%}
+        {% endfor %}
+    </div>
+        {% for i in some_list%}
+            {% include 'patterns/block_comments.html'%}
+        {% endfor%}
+</div>
+<script src="{% static 'js/hide_comment_script.js' %}" ></script>
+        <script src="{% static 'js/comment.js' %}" ></script>
+{%endblock%}
+
+{% block right_sidebar %}
+       {% include 'patterns/block_best_authors.html' %}
+{% endblock %}

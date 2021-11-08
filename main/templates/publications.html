@@ -1,0 +1,36 @@
+{% extends 'patterns/sidebar.html' %}
+
+{%block title %}sadasdasdsda{% endblock%}
+
+{% load static%}
+
+{% block main_content %}
+<div>
+    <div class="inputs_of_notifical mb_search">
+        <a class="" href="/search">Люди</a>
+        <a class="active" href="/publications">Публикации</a>
+    </div>
+    <div class="manag_content">
+
+        <div class="find_container">
+            <img src="{% static '/img/svg/zoom_out.svg'%}" class="lupa">
+            <input class="find " type="text" placeholder=" Поиск...", onkeyup="show_found_posts(this)">
+        </div>
+        <div id="publications_search_list">
+            {% for i in profile_list%}
+                {% include 'patterns/block_comments.html' %}
+            {% endfor%}
+        </div>
+        <div class="show_more_btn_container" id="publications_show_more_btn">
+            <button class="show_more_btn registerbtn">Показать больше</button>
+        </div>
+    </div>
+</div>
+ <script src="{% static 'js/hide_comment_script.js' %}"></script>
+ <script src="{% static 'js/comment.js' %}"></script>
+{% endblock %}
+
+
+{% block right_sidebar %}
+{% include 'patterns/block_best_authors.html' %}
+{% endblock %}

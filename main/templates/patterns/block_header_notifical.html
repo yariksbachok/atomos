@@ -1,0 +1,39 @@
+{% load static %}
+
+<div class="header_of_notifical">
+<div class="inputs_of_notifical">
+    <a tabindex="0" href="/notification">Все уведомления</a>
+    <a tabindex="0" href="/mention">Упоминания</a>
+</div>
+<div class="settings_of_notifical" tabindex="0">
+    <a tabindex="0" ><img src="{% static 'img/svg/settings.svg' %}" alt=""></a>
+    <div class="padding_notifical">
+        <div class="edit_notifical" tabindex="0">
+        <div class="block_not">
+            <img src="{% static 'img/svg/fast_not.svg' %}" alt="">
+            <p>Показывать мгновенные уведомления</p>
+            <label class="switch">
+              <input type="checkbox" checked="">
+              <span class="slider round"></span>
+            </label>
+        </div>
+        <div class="block_not">
+            <img src="{% static 'img/svg/sound_blue.svg' %}" alt="">
+            <p>Получать уведомления со звуком</p>
+            <label class="switch">
+              <input type="checkbox" checked="">
+              <span class="slider round"></span>
+            </label>
+        </div>
+        <div class="block_not">
+            <img src="{% static 'img/svg/comments_blue.svg' %}" alt="">
+            <p>Показывать текст сообщений</p>
+            <label class="switch">
+              <input type="checkbox" checked="">
+              <span class="slider round"></span>
+            </label>
+        </div>
+    </div>
+</div>
+</div>
+</div>

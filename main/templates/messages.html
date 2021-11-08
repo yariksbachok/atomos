@@ -1,0 +1,32 @@
+{% extends 'patterns/sidebar.html' %}
+
+{%block title %}messages{% endblock%}
+
+{% load static%}
+
+{% block main_content%}
+        {% include 'patterns/block_message.html' %}
+{% endblock %}
+
+{% block right_sidebar %}
+<div class="all_messages">
+    <div class="correspondence">
+        {% for u in chat_users %}
+        <div class="mt10">
+            <a href="/messages/{{u.id}}">
+                <img src="/{{u.profile.get.avatar}}" alt="">
+                <p>{{u.first_name}} {{u.last_name}} {% if u.profile.get.online %}
+            <svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="3" cy="3" r="3" fill="#2578FF"/>
+          </svg>
+            {%endif%} </p>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div style="display: none" class="avatars">
+    <img class="avatar_to_user" src="/{{avatars.to_user}}" alt="">
+    <img class="avatar_user" src="/{{avatars.user}}" alt="">
+</div>
+{% endblock %}

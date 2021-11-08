@@ -1,0 +1,4 @@
+channels
+channels-redis
+django-markdownify
+Pillow

@@ -1,0 +1,43 @@
+{% extends 'patterns/header_footer.html' %}
+
+{%block title %}ATOMOS / Авторизация{% endblock%}
+{% load static%}
+{% block content%}
+
+    <div class="register wrapper">
+        <div class="reg_title">
+            <h1>Войти в аккаунт Atomos</h1>
+        </div>
+        <form method="post">
+            {% csrf_token %}
+                <div class="reg_conteiner">
+                    <div class="conteiner_email">
+                        <label class="label_form" form="email"><b>E-mail или юзернейм</b></label>
+                        <input class="form_email" type="text" placeholder="melnikov@mail.ru" name="email" required="">
+                    </div>
+                    <div class="all_psw">
+                        <div class="psw w100">
+                            <label class="label_form" form="psw"><b>Пароль</b></label><br>
+                                <div class="pop">
+                                    <input class="form_email" type="password" placeholder="GHHa3gYCxvgq8rQdrv2F|" name="psw" required="">
+                                    <div class="imgbtn">
+                                        <a>
+                                            <img onClick="eye_toggler_lr(this)" eight="22px" width="22px" src="{% static 'img/svg/show.svg'%}">
+                                        </a>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                {% if error_message %}
+                    <div class="not_email">
+                        <p>{{ error_message }}</p>
+                    </div>
+                {% endif %}
+                <div class="form_submit ">
+                    <button type="submit" class="registerbtn hover_blue">Войти</button>
+                </div>
+        </form>
+    </div>
+<script src="{% static 'js/eye_script.js' %}"></script>
+{%endblock%}
